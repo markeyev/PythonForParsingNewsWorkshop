@@ -43,7 +43,13 @@ Example questions and easy answers:
    
 ## Examples
 
-You can find code examples in the `examples` folder. 
+You can find code examples in the `examples` folder.
+
+1. A small example of how to parse RSS feed with feedparser (you can use https://colab.research.google.com/ to run this code).
+2. The same idea, but with feedparser_wrapper package to get sanitized content from posts (works in colab too).
+3. An example of usage pymongo library for storing posts data in Mongo DB on your localhost (couldn't be used in colab).
+4. The minimal example of REST API JSON response with flask.
+5. An example of getting REST API JSON response with one of the most popular Python library - requests.
 
 ## Solution 
 
