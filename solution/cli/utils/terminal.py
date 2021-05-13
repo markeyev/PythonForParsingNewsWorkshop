@@ -38,7 +38,6 @@ def show_post(post: dict) -> None:
     try:
         stared = '*' if is_post_stared(post['_id']) else ''
         print(f'''{datetime.datetime.fromtimestamp(post['published'])} {stared} 
-[{', '.join(post["entities"])}]
 {post["title"]}
 
 {post["url"]}
@@ -63,21 +62,3 @@ def print_stats():
 
     for feed in db.feeds.find({}):
         print(f'''{feed['_id']} - {feed['url']}''')
-
-
-def print_entities():
-    ent_cnt = Counter()
-    for post in db.posts.find({'entities': {'$ne': None}}):
-        ent_cnt.update(post['entities'])
-
-    for word, cnt in ent_cnt.most_common():
-        if cnt < 2:
-            break
-        print(f'{word}\t{cnt}')
-
-    while True:
-        word = input("word: ")
-        if word == 'q':
-            break
-
-        print(list(db.posts.remove({'entities': word})))
