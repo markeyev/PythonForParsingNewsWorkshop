@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+//package feedster;
+
+message Feed {
+  string url = 1;
+  string title = 2;
+  string website = 3;
+  int32 modified = 4;
+  string etag = 5;
+  int32 interval = 6;  // Parsing interval in seconds.
+  string language_code = 7;
+
+  repeated Post posts = 8;
+}
+
+message Post {
+  string url = 1;
+  string feed_hash = 2;
+  int32 published = 3;
+  string title = 4;
+  string summary = 5;
+  string content = 6;
+  repeated string tags = 7;
+}
+
+message FeedParsingRequest {
+  string url = 1;
+  int32 modified = 2;
+  string etag = 3;
+  int32 interval = 4;
+}
+
+message FeedParsingResponse {
+  string url = 1;
+  int32 modified = 2;
+  string etag = 3;
+  int32 interval = 4;
+
+  repeated Post posts = 5;
+}
+
+service Parser {
+  rpc Download (FeedParsingRequest) returns (FeedParsingResponse) {}
+}
+

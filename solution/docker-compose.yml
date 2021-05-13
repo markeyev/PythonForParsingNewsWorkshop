@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo
+
+  parser:
+    build: feedster_server/.
+    environment:
+      - PORT=50051
+
+  cli:
+    build: cli/.
+    image: cli:latest
+    environment:
+      - MONGO_HOST=mongo
+      - PARSER_HOST=parser
+    command: python3 editor_cli.py
+    depends_on:
+      - mongo
+      - parser

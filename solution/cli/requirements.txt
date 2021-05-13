@@ -1,0 +1,9 @@
+feedparser
+getkey
+grpcio
+grpcio-tools
+protobuf
+pymongo
+requests
+git+https://github.com/markeyev/feedparser_wrapper.git
+url_normalize
