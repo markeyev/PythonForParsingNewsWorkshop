@@ -1,5 +1,4 @@
 import datetime
-from collections import Counter
 
 from models.functions import is_post_stared, db
 from settings import CURRENT_PROJECT

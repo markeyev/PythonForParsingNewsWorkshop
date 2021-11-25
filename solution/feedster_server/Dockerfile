@@ -11,6 +11,6 @@ RUN pip install -r requirements.txt && \
         --grpc_python_out=. \
         feedster.proto
 
-EXPOSE 50501
+EXPOSE 50051
 
 CMD ["python", "feedster_server.py"]
